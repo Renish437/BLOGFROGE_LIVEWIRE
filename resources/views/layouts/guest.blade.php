@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"   
+  
+ >
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,11 +20,11 @@
         @livewireStyles
          <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
-    <body>
+    <body >
 
            @include('layouts.partials.header')
              <x-banner />
-        <div class=" text-gray-900 antialiased">
+        <div class=" text-gray-900 dark:bg-gray-800 py-5  antialiased">
             {{ $slot }}
         </div>
    @include('layouts.partials.footer')

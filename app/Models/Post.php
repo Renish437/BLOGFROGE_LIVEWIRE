@@ -18,4 +18,19 @@ class Post extends Model
     {
         return $query->where('is_featured', true);
     }
+    public function author(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+       protected function casts(): array
+    {
+        return [
+            'published_at' => 'datetime',
+           
+        ];
+    }
+  
+    public function getReadingTime(){
+        $words = str_word_count($this->body);
+        return ceil($words / 250);
+    }
 }

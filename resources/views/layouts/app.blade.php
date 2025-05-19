@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" 
+  {{-- x-data="{isDarkMode: localStorage.getItem('dark')==='true'}"
+  x-init="$watch('isDarkMode',val=>localStorage.setItem('dark',val))"
+   x-bind:class="{'dark': isDarkMode}" --}}
+   
+    >
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +23,23 @@
         <!-- Styles -->
         @livewireStyles
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <script>
+    // Immediately apply dark mode on page load (even before Alpine/Livewire)
+    if (localStorage.getItem('dark') === 'true') {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+
+    // Expose a global toggle function for your toggle switch
+    window.toggleDarkMode = function (val) {
+        localStorage.setItem('dark', val);
+        document.documentElement.classList.toggle('dark', val);
+    };
+</script>
+
     </head>
-    <body class="antialiased">
+    <body class="antialiased"  >
         <x-banner />
 
  
@@ -27,7 +47,7 @@
       @include('layouts.partials.header')
 
       @yield('hero')
-    <main class="container mx-auto px-5 flex flex-grow">
+    <main class="container mx-auto px-2 dark:px-0 flex flex-grow bg-gray-100 dark:bg-gray-800">
       
             {{ $slot }}
       
