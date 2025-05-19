@@ -18,7 +18,7 @@
  @endsection
 
   
-        <div class="mb-10 dark:bg-gray-800 px-7">
+        <div class="mb-10 dark:bg-gray-800  px-7 ">
             <div class="mb-16">
                 <h2 class="mt-16 mb-5 text-3xl text-purple-600 dark:text-gray-300 font-bold">Featured Posts</h2>
                 <div class="w-full">

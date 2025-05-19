@@ -39,7 +39,7 @@
 </script>
 
     </head>
-    <body class="antialiased"  >
+    <body class="antialiased max-w-9xl dark:bg-gray-800 bg-gray-50"  >
         <x-banner />
 
  
@@ -47,7 +47,7 @@
       @include('layouts.partials.header')
 
       @yield('hero')
-    <main class="container mx-auto px-2 dark:px-0 flex flex-grow bg-gray-100 dark:bg-gray-800">
+    <main class="container mx-auto px-7 dark:bg-gray-800  flex flex-grow ">
       
             {{ $slot }}
       
