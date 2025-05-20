@@ -2,12 +2,17 @@
                     <div class="flex justify-between items-center border-b py-3 border-gray-100">
                         <div class="text-gray-600 dark:text-gray-300">
                             @if($this->activeCategory || $search)
+       
                             <button class="text-gray-600 dark:text-gray-300 mr-3" wire:click="clearFilters()">X</button>
                             @endif
-                            @if($search)
-                                Searching for: <span class="text-gray-700 dark:text-gray-300">{{ $search }}</span>
-                           @else 
-                              All Posts  
+                            @if(!$search)
+                              
+                         
+                             @if(!$search && !$this->activeCategory)
+                                 All Posts  
+                             
+                                
+                             @endif
                             @endif
                             @if($this->activeCategory)
                               <x-badge wire:navigate href="{{ route('posts.index',['category' => $this->activeCategory->slug]) }}"  textColor="{{ $this->activeCategory->text_color }}" bgColor="{{ $this->activeCategory->background_color }}" >
@@ -17,10 +22,25 @@
                         @if($search)
                      
                               
-                        Containing {{ $search }}
+                       
+                        <span> Containing</span> <span class="text-gray-900 dark:text-gray-300">{{ $search }}</span>
+                       
                      
                             
                         @endif
+                                       @if($this->activeCategory || $search)
+                                <div class="dot-spinner pt-2" wire:loading.delay  >
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+</div>
+@endif
+
                         </div>
                         <div id="filter-selector" class="flex items-center space-x-4 font-light ">
                             <button class="{{ $sort === 'desc' ? 'text-gray-900 dark:text-gray-300 border-b' : 'text-gray-500 ' }} py-1 dark:text-gray-300 border-gray-800 dark:border-gray-100" wire:click="setSort('desc')">Latest</button>
