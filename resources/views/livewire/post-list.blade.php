@@ -1,4 +1,4 @@
-    <div  class=" px-3 lg:px-7 py-6 dark:bg-gray-800">
+    <div  class=" px-3 lg:px-4 py-6 dark:bg-gray-800">
                     <div class="flex justify-between items-center border-b py-3 border-gray-100">
                         <div class="text-gray-600 dark:text-gray-300">
                             @if($this->activeCategory || $search)

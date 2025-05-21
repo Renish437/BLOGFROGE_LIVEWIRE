@@ -2,7 +2,7 @@
   <article class="[&:not(:last-child)]:border-b border-gray-100 pb-10 dark:text-gray-100">
                             <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
                                 <div class="article-thumbnail col-span-4 flex items-center">
-                                    <a href="{{ route('posts.show', $post) }}" >
+                                    <a wire:navigate href="{{ route('posts.show', $post) }}" >
 
                                         <img class="mw-100 mx-auto rounded-xl"
                                             src="{{ $post->getThumbnailImage() }}"
@@ -13,14 +13,11 @@
                                 </div>
                                 <div class="col-span-8">
                                     <div class="article-meta flex py-1 text-sm items-center">
-                                        <img class="w-7 h-7 rounded-full mr-3"
-                                            src="{{ $post->author->profile_photo_url }}"
-                                            alt="avatar">
-                                        <span class="mr-1 text-xs dark:text-gray-100">{{ $post->author->name }}</span>
+                                        <x-posts.author :author="$post->author" />
                                         <span class="text-gray-500 dark:text-gray-100 text-xs">.{{ $post->published_at->diffForHumans() }}</span>
                                     </div>
                                     <h2 class="text-xl font-bold text-gray-900 dark:text-white">
-                                        <a href="{{ route('posts.show', $post) }}" >
+                                        <a wire:navigate  href="{{ route('posts.show', $post) }}" >
                                             {{ $post->title }}
                                         </a>
                                     </h2>
@@ -31,15 +28,13 @@
                                     <div class="article-actions-bar mt-6 flex items-center justify-between">
                                         <div class="flex items-center space-x-2">
                                             @foreach ($post->categories as $category)
-                                                <x-badge wire:navigate href="{{ route('posts.index',['category' => $category->slug]) }}" textColor="{{ $category->text_color }}" bgColor="{{ $category->background_color }}" >
-                                                    {{ $category->title }}
-                                                </x-badge>
+                                                  <x-posts.category-badge :category="$category" />
                                                 
                                             @endforeach
-
+ <span class="text-gray-500 dark:text-gray-100 text-sm">{{ $post->getReadingTime() }} min read</span>
                                         </div>
-                                        <div class="flex items-center space-x-4">
-                                            <span class="text-gray-500 dark:text-gray-100 text-sm">{{ $post->getReadingTime() }} min read</span>
+                                        <div class="flex  space-x-4">
+                                           
                                         </div>
                                         <div>
                                           <livewire:like-button :post="$post" :key="$post->id.now()"/>

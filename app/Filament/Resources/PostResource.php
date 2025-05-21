@@ -68,17 +68,37 @@ class PostResource extends Resource
                 Forms\Components\DateTimePicker::make('published_at'),
                 Forms\Components\Toggle::make('is_featured')
                     ->required(),
-                    Select::make('author')
+                    Select::make('user_id')
                     ->relationship('author', 'name')
                     ->searchable()
                     ->preload()
                     ->required(),
-                         Select::make('categories')
+                    Select::make('categories')
                     ->relationship('categories', 'title')
                     ->searchable()
                     ->preload()
                     ->multiple()
-                    ->required(),
+                    ->required()
+                    ->createOptionForm([
+                          Forms\Components\TextInput::make('title')
+                    ->live(debounce: 1000)
+                    ->required()
+                    ->maxLength(255)
+                    ->afterStateUpdated(function(string $operation,$state,Set $set){
+                        if($operation === 'edit') return;
+
+                      $set('slug',Str::slug($state));
+                    }),
+                Forms\Components\TextInput::make('slug')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('text_color')
+                    ->maxLength(255)
+                    ->default(null),
+                Forms\Components\TextInput::make('background_color')
+                    ->maxLength(255)
+                    ->default(null),
+                    ]),
                ])
             ]);
     }

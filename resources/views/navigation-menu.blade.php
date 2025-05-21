@@ -1,7 +1,7 @@
   <nav class="flex items-center justify-between py-6 px-6 shadow-xl  bg-white dark:bg-[#2e3745] ">
         <div id="header-left" class="flex items-center">
             <div class="text-gray-800 font-bold">
-              <a href="{{ route('home') }}">
+              <a wire:navigate href="{{ route('home') }}">
                
                  <x-application-logo/>
              
