@@ -1,4 +1,4 @@
-<x-action-section>
+<x-action-section title="Delete Account">
     <x-slot name="title">
         {{ __('Delete Account') }}
     </x-slot>

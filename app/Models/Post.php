@@ -63,4 +63,8 @@ class Post extends Model
          $query->where('slug', $category);
      });
     }
+    public function scopePopular($query){
+        
+       $query->withCount('likes')->orderBy('likes_count', 'desc');
+    }
 }

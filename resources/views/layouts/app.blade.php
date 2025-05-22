@@ -1,16 +1,12 @@
+@props(['title'])
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" 
-  {{-- x-data="{isDarkMode: localStorage.getItem('dark')==='true'}"
-  x-init="$watch('isDarkMode',val=>localStorage.setItem('dark',val))"
-   x-bind:class="{'dark': isDarkMode}" --}}
-   
-    >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title> {{ isset($title) ? $title . ' | ' : ''}} {{ config('app.name', '') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -23,23 +19,10 @@
         <!-- Styles -->
         @livewireStyles
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <script>
-    // Immediately apply dark mode on page load (even before Alpine/Livewire)
-    if (localStorage.getItem('dark') === 'true') {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
-    }
 
-    // Expose a global toggle function for your toggle switch
-    window.toggleDarkMode = function (val) {
-        localStorage.setItem('dark', val);
-        document.documentElement.classList.toggle('dark', val);
-    };
-</script>
 
     </head>
-    <body class="antialiased max-w-9xl dark:bg-gray-800 bg-gray-50"  >
+    <body class="antialiased max-w-9xl  dark:bg-gray-800 bg-gray-50"  >
         <x-banner />
 
  
@@ -47,7 +30,7 @@
       @include('layouts.partials.header')
 
       @yield('hero')
-    <main class="container mx-auto px-7 dark:bg-gray-800  flex flex-grow ">
+    <main class="container mx-auto  dark:bg-gray-800  flex  ">
       
             {{ $slot }}
       

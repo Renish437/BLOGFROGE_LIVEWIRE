@@ -1,5 +1,7 @@
   @props(['post'])
-  <article class="[&:not(:last-child)]:border-b border-gray-100 pb-10 dark:text-gray-100">
+  <article
+  {{ $attributes->merge(['class' => '[&:not(:last-child)]:border-b border-gray-100 pb-10 dark:text-gray-100']) }}
+   >
                             <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
                                 <div class="article-thumbnail col-span-4 flex items-center">
                                     <a wire:navigate href="{{ route('posts.show', $post) }}" >
@@ -31,7 +33,7 @@
                                                   <x-posts.category-badge :category="$category" />
                                                 
                                             @endforeach
- <span class="text-gray-500 dark:text-gray-100 text-sm">{{ $post->getReadingTime() }} min read</span>
+                                        <span class="text-gray-500 dark:text-gray-100 text-sm">{{ $post->getReadingTime() }} min read</span>
                                         </div>
                                         <div class="flex  space-x-4">
                                            
