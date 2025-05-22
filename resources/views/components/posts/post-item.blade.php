@@ -4,9 +4,9 @@
    >
                             <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
                                 <div class="article-thumbnail col-span-4 flex items-center">
-                                    <a wire:navigate href="{{ route('posts.show', $post) }}" >
+                                    <a class="aspect-w-3 aspect-h-3" wire:navigate href="{{ route('posts.show', $post) }}" >
 
-                                        <img class="mw-100 mx-auto rounded-xl"
+                                        <img class="w-full mx-auto rounded-xl"
                                             src="{{ $post->getThumbnailImage() }}"
                                             alt="thumbnail">
     

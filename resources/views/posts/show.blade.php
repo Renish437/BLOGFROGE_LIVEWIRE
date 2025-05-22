@@ -4,9 +4,9 @@
 
 
    
-   <div class="max-w-[1400px] grid grid-cols-8 gap-10">
+   <div class="max-w-7xl mx-auto grid grid-cols-1 p-2 md:grid-cols-5 gap-10">
     
-        <article class="col-span-1 md:col-span-5 mt-10  py-5 w-full dark:text-gray-100" style="max-width:700px">
+        <article class="col-span-1 md:col-span-3 mt-10 order-2 md:order-1 py-5 w-full dark:text-gray-100" style="max-width:700px">
             <img class="w-full my-2 rounded-lg" src="{{ $post->getThumbnailImage() }}" alt="{{ $post->title }}">
             <h1 class="text-4xl font-bold text-left text-gray-800 dark:text-gray-100">
                 {{ $post->title }}
@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <div class="article-content prose py-3 text-gray-800 dark:text-gray-100 text-lg tracking-tight text-justify">
+            <div class="article-content prose py-3 text-gray-800 dark:text-gray-100 text-medium md:text-lg tracking-tight text-justify">
                 {!! $post->body !!}
             </div>
 
@@ -60,7 +60,7 @@
 
 
         </article>
-         <div class="md:col-span-3  w-full">
+         <div class="col-span-1 order-2 md:order-2 md:col-span-2  w-full">
                      <livewire:post-comments :post="$post" :key="'comments-'.$post->id.now()" />
          </div>
    </div>

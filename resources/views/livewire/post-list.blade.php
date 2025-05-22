@@ -44,7 +44,7 @@
                         </div>
                         <div id="filter-selector" class="flex items-center space-x-4 font-light ">
                             {{-- <x-checkbox wire:model.live="popular"  label="popular"/> --}}
-                            <input  type="checkbox" name="popular" class="rounded border-gray-300 cursor-pointer text-purple-600  shadow-sm focus:ring-purple-500" wire:change="togglePopular()" {{ $this->popular ? 'checked' : '' }}  id="checkbox-here">
+                            <input  type="checkbox" name="popular" class="rounded border-gray-300 cursor-pointer text-purple-600  shadow-sm focus:ring-purple-500" wire:change="togglePopular" {{ $this->popular ? 'checked' : '' }}  id="checkbox-here">
                             <x-label>Popular</x-label>
                             
                             <button class="{{ $sort === 'desc' ? 'text-gray-900 dark:text-gray-300 border-b' : 'text-gray-500 ' }} py-1 dark:text-gray-300 border-gray-800 dark:border-gray-100" wire:click="setSort('desc')">Latest</button>

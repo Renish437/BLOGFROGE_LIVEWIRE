@@ -1,4 +1,4 @@
-  <nav class="flex items-center justify-between py-6 px-6 shadow-xl  bg-white dark:bg-[#2e3745] ">
+  <nav class="flex items-center justify-between  shadow-xl sticky top-0 z-50  p-2 md:px-4 md:py-6 bg-white dark:bg-[#2e3745] ">
         <div id="header-left" class="flex items-center">
             <div class="text-gray-800 font-bold">
               <a wire:navigate href="{{ route('home') }}">
