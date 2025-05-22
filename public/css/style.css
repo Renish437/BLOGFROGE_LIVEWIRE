@@ -17,7 +17,7 @@ body {
 /* The switch - the box around the slider */
 .switch {
   display: block;
-  --width-of-switch: 3.5em;
+  --width-of-switch: 3.2em;
   --height-of-switch: 2em;
   /* size of sliding icon -- sun and moon */
   --size-of-icon: 1.4em;
