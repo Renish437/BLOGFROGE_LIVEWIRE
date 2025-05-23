@@ -15,14 +15,15 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         
-
+ <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <!-- Styles -->
-        @livewireStyles
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+       
+       
 
 
     </head>
     <body class="antialiased max-w-9xl  dark:bg-gray-800 bg-gray-50"  >
+       @livewireStyles
         <x-banner />
 
  

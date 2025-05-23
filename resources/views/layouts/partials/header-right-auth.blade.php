@@ -2,12 +2,12 @@
                 <div class=" flex ms-3 space-x-4 relative">
                        @if(Auth::user()->role == 'ADMIN')
                        <x-nav-link :navigate="false" href="{{ route('filament.admin.auth.login') }}" :active="request()->routeIs('filament.admin.auth.login')">
-                        {{ __('Admin') }}
+                        {{ __('menu.admin') }}
                     </x-nav-link>
                     @endif
                        @if(Auth::user()->role == 'EDITOR')
                        <x-nav-link :navigate="false" href="{{ route('filament.admin.auth.login') }}" :active="request()->routeIs('filament.admin.auth.login')">
-                        {{ __('Editor') }}
+                        {{ __('menu.editor') }}
                     </x-nav-link>
                     @endif
                     <x-dropdown align="right" width="48">
@@ -32,11 +32,11 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('menu.manage-account') }}
                             </div>
 
                             <x-dropdown-link wire:navigate href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('menu.profile') }}
                             </x-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -53,7 +53,7 @@
 
                                 <x-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('menu.logout') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>

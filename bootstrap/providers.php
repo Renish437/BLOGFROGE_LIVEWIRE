@@ -5,5 +5,8 @@ return [
     App\Providers\Filament\AdminPanelProvider::class,
     App\Providers\FortifyServiceProvider::class,
     App\Providers\JetstreamServiceProvider::class,
+   
     Barryvdh\Debugbar\ServiceProvider::class,
+     App\Providers\LocaleServiceProvider::class,
+   
 ];

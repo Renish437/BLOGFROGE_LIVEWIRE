@@ -1,6 +1,6 @@
    <div  id="search-box" wire:keydown.enter="update" >
                    
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">Search</h3>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">{{ __('myblog.search') }}</h3>
                         <div class="w-full flex rounded-2xl bg-gray-100  dark:bg-gray-200 py-2 px-3 mb-3 items-center">
                             
                                  <div class="dot-spinner" wire:loading.delay wire:target="update" >
@@ -15,7 +15,7 @@
 </div>
                              <input wire:model="search"
                                 class="w-full ml-1 bg-transparent focus:outline-none focus:border-none focus:ring-0 outline-none border-none text-xs text-gray-800 placeholder:text-gray-400"
-                                type="text" placeholder="Search Blogs...">
+                                type="text" placeholder="{{ __('myblog.search_placeholder') }}">
                                
                          
                            <span class="cursor-pointer"

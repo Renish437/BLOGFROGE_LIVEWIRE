@@ -1,4 +1,4 @@
-    <div wire:refresh-component="$refresh"   class=" px-3 lg:px-4 py-6 dark:bg-gray-800">
+    <div wire:refresh-component="$refresh"   class="  px-3 lg:px-4 py-6 dark:bg-gray-800">
                     <div class="flex justify-between items-center border-b py-3 border-gray-100">
                         <div class="text-gray-600 dark:text-gray-300">
                             @if($this->activeCategory || $search)
@@ -9,7 +9,7 @@
                               
                          
                              @if(!$search && !$this->activeCategory)
-                                 All Posts  
+                                 {{ __('myblog.all-posts') }}
                              
                                 
                              @endif
@@ -23,7 +23,7 @@
                      
                               
                        
-                        <span> Containing</span> <span class="text-gray-900 dark:text-gray-300">{{ $search }}</span>
+                        <span> {{ __('myblog.containing') }}</span> <span class="text-gray-900 dark:text-gray-300">{{ $search }}</span>
                        
                      
                             
@@ -45,10 +45,10 @@
                         <div id="filter-selector" class="flex items-center space-x-4 font-light ">
                             {{-- <x-checkbox wire:model.live="popular"  label="popular"/> --}}
                             <input  type="checkbox" name="popular" class="rounded border-gray-300 cursor-pointer text-purple-600  shadow-sm focus:ring-purple-500" wire:change="togglePopular" {{ $this->popular ? 'checked' : '' }}  id="checkbox-here">
-                            <x-label>Popular</x-label>
+                            <x-label>{{ __('myblog.popular') }}</x-label>
                             
-                            <button class="{{ $sort === 'desc' ? 'text-gray-900 dark:text-gray-300 border-b' : 'text-gray-500 ' }} py-1 dark:text-gray-300 border-gray-800 dark:border-gray-100" wire:click="setSort('desc')">Latest</button>
-                            <button class="{{ $sort === 'asc' ? 'text-gray-900 dark:text-gray-300 border-b' : 'text-gray-500 ' }} py-1  dark:text-gray-300 border-gray-800 dark:border-gray-100" wire:click="setSort('asc')">Oldest</button>
+                            <button class="{{ $sort === 'desc' ? 'text-gray-900 dark:text-gray-300 border-b' : 'text-gray-500 ' }} py-1 dark:text-gray-300 border-gray-800 dark:border-gray-100" wire:click="setSort('desc')">{{ __('myblog.latest') }}</button>
+                            <button class="{{ $sort === 'asc' ? 'text-gray-900 dark:text-gray-300 border-b' : 'text-gray-500 ' }} py-1  dark:text-gray-300 border-gray-800 dark:border-gray-100" wire:click="setSort('asc')">{{ __('myblog.oldest') }}</button>
                         </div>
                     </div>
                     <div class="py-4">

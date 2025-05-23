@@ -11,10 +11,10 @@
     <!-- Center Section: Menu Links (Hidden on mobile, shown on larger screens) -->
     <div class="top-menu hidden md:flex md:items-center md:space-x-6">
         <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')" class="text-gray-700 dark:text-gray-200 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
-            {{ __('Home') }}
+            {{ __('menu.home') }}
         </x-nav-link>
         <x-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')" class="text-gray-700 dark:text-gray-200 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
-            {{ __('Blog') }}
+            {{ __('menu.blog') }}
         </x-nav-link>
     </div>
 

@@ -90,9 +90,7 @@ public function updatedPopular($value){
     public function render()
     {
      
-    
-
-        return view('livewire.post-list');
+     return view('livewire.post-list');
      
     }
 }
