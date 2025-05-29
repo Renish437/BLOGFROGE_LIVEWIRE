@@ -18,7 +18,7 @@ Route::get('/language/{locale}', function ($locale) {
         session()->put('locale', $locale);
        
     }
-    return redirect()->back();
+    return redirect()->back(); //hello
 })->name('locale');
 // Route::get('/posts-list', [PostList::class, 'getPostsJson'])->name('posts.list.json');
 
